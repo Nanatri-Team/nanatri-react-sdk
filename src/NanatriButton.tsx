@@ -9,6 +9,7 @@ declare global {
     interface IntrinsicElements {
       'nanatri-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         'merchant-id'?: string;
+        'item-id'?: string;
         label?: string;
         color?: string;
         'text-color'?: string;
@@ -22,6 +23,7 @@ declare global {
 
 export function NanatriButton({
   merchantId,
+  itemId,
   label,
   color,
   textColor,
@@ -85,6 +87,7 @@ export function NanatriButton({
     <nanatri-button
       ref={ref}
       merchant-id={merchantId}
+      {...(itemId !== undefined && { 'item-id': itemId })}
       {...(label !== undefined && { label })}
       {...(color !== undefined && { color })}
       {...(textColor !== undefined && { 'text-color': textColor })}

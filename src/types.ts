@@ -1,9 +1,19 @@
 export interface NanatriButtonSignedInDetail {
-  userId: string;
+  accessToken: string;
+  refreshToken: string;
+  expiresAt: string;
+  user: {
+    id: string;
+    phoneNumber?: string;
+    displayName?: string;
+    accountType: string;
+  };
+  requiresProfileCompletion: boolean;
 }
 
 export interface NanatriButtonAddedDetail {
   userId: string;
+  wishlistId?: string;
 }
 
 export interface NanatriButtonFailedDetail {
@@ -13,6 +23,7 @@ export interface NanatriButtonFailedDetail {
 
 export interface NanatriButtonProps {
   merchantId: string;
+  itemId?: string;
   label?: string;
   color?: string;
   textColor?: string;
